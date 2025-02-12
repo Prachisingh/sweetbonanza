@@ -56,7 +56,7 @@ public class SlotMachine {
         int scatterCount;
         totalWin = cascade(stake, slotFace, totalWin, stopPosition, cascadeList, spin, isFreeGame, gameConfiguration);
         scatterCount = checkForScatterSym(slotFace, gameConfiguration);
-        if (scatterCount >= 40) {
+        if (scatterCount >= 4) {
 
             int fsAwarded = 12 + ((scatterCount - 4) * 5);
             spin.setFsAwarded(fsAwarded);
@@ -177,7 +177,12 @@ public class SlotMachine {
     private static String[] selectReels(int boardHeight, String[] reel, int position) {
         String[] boardReel = new String[boardHeight];
         for (int i = 0; i < boardHeight; i++) {
-            boardReel[i] = reel[(position + i - 1) % reel.length];
+            if((position + i) % reel.length == -1){
+                throw new RuntimeException("Exception caught");
+            }
+            boardReel[i] = reel[(position + i ) % reel.length];
+
+
         }
         return boardReel;
     }

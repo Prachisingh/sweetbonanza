@@ -47,9 +47,7 @@ public class RTPTest {
 
         BigDecimal highestWin = BigDecimal.ZERO;
         int numOfTimesFsTriggered = 0;
-        RtpResult rtpRe = new RtpResult();
 //        List<WinBand> winSummaryBands = getWinBands();
-//        long time = System.currentTimeMillis();
         Random rng = new Random();
         Map<String, OfAKindWins> winningMap = new HashMap<>();
         for (int i = 0; i < eachRun; i++) {
@@ -59,7 +57,7 @@ public class RTPTest {
             BigDecimal currentWins = BigDecimal.ZERO;
             List<String[]> bgReelSet = gameConfiguration.reelSets.getFirst();
             Spin baseSpin = SlotMachine.playBaseGame(stake, rng, false, bgReelSet, gameConfiguration);
-            //calculateOfAKindWins(baseSpin, winningMap);
+            calculateOfAKindWins(baseSpin, winningMap);
             baseGameWin = baseGameWin.add(baseSpin.getTotalWin());
             if (baseSpin.isFsTriggered()) {
                 numOfTimesFsTriggered++;

@@ -20,7 +20,7 @@ public class FreeSpins {
 
     public static void main(String[] args) {
         GameConfiguration gameConfiguration = new GameConfiguration();
-        playFreeSpins(rng, 12, gameConfiguration);
+        playFreeSpins(rng, 10, gameConfiguration);
     }
 
     public static Spin playFreeSpins(Random rng, int fsAwarded, GameConfiguration gameConfiguration) {
